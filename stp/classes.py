@@ -53,7 +53,7 @@ class Message:
 
 
     def __gt__(self, other): 
-        if(self.destination > other.destination): 
+        if(self.dest > other.dest): 
             return True
         else: 
             return False
