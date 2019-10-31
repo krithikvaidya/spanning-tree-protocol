@@ -1,5 +1,5 @@
 from .STPImplementation.create_topology import create_topo
-from .stp_algo import implement_protocol, print_bridge_root_ports, print_port_statuses
+from .STPImplementation.stp_algo import implement_protocol, print_bridge_root_ports, print_port_statuses
 
 def run():
     bridge_network = []

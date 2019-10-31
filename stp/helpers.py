@@ -50,7 +50,8 @@ def SendMessage(message, bridge_network, LAN_network):
 				for LAN_adj_bridge in LAN.adj_bridges:
 					if LAN_adj_bridge != source.bridge_id:
 						messages.append(Message(root, dist, source, LAN_adj_bridge, LAN.lan_id))
-					
+	
+	messages.sort()
 	return messages
 
 
@@ -58,13 +59,13 @@ def UpdateConfig(message, bridge_network):  # lists are mutable
 	
 	root = message.root
 	dist = message.dist  
-	source = message.source  # might need to do imports for the datatype
+	source = message.source
 	dest = message.dest
 	LAN = message.LAN
 
-	return_message = Message(root = -1, dist = -1, source = None, dest = -1, LAN = None)  # might cause error because not passing params to constructor
+	return_message = Message(root = -1, dist = -1, source = None, dest = -1, LAN = None)
 
-	bridge = bridge_network[dest - 1]
+	bridge = bridge_network[dest]
 
 	if (root < bridge.root_id) or ((root == bridge.root_id) and (dist + 1 < bridge.root_distance)) or ((root == bridge.root_id) and (dist + 1 == bridge.root_distance) and (source.bridge_id < bridge.root_port[1])):
 		# hoping that custom class objects are mutable.

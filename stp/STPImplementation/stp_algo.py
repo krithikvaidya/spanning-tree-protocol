@@ -93,7 +93,6 @@ def print_port_statuses(bridge_network, LAN_network):
 		# print(f'B{bridge.bridge_id}:')
 		for j in range(len(bridge.adj_LANs)):
 
-
 			try:
 				LAN = bridge.adj_LANs[j]
 			except IndexError:
@@ -115,30 +114,9 @@ def print_port_statuses(bridge_network, LAN_network):
 
 			if flag == 0:
 				print('NP', end='')
-				m = 0
 				
-				while (m < len(bridge.adj_LANs) and (bridge.adj_LANs[m] != c)):
-					m += 1
-
-				if m != len(bridge.adj_LANs):
-					del(bridge.adj_LANs[m: len(bridge.adj_LANs)])
+				list(filter((c).__ne__, bridge.adj_LANs))
+				
 				j -= 1
 
 		print()
-
-"""
-	//Updating Lan network
-
-	for(int i=0; i<lan_network.size();i++)
-	{
-		char c = lan_network[i].id;
-		vector<int> l;
-		for(int i=0; i<bridge_network.size();i++)
-			for(int j=0; j<bridge_network[i].adj_lans.size(); j++)
-				if (bridge_network[i].adj_lans[j] == c) l.push_back(bridge_network[i].id);
-		lan_network[i].adj_bridges = l;
-	}
-	//cout<<" Final bridge network"<<endl;
-	//print_lan_network(lan_network);
-			
-"""
