@@ -1,4 +1,4 @@
-class LAN:
+class LANN:
 
     """
     id = '\0';
