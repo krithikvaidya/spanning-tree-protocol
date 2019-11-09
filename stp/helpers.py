@@ -18,14 +18,12 @@ def print_LAN_network(LAN_network):
 
 	for LAN in LAN_network:
 
-		print(LAN.lan_id)
+		print(f'\nAdjacent Bridges for LAN {LAN.lan_id}: ', end = '')
 
 		for adj_bridge in LAN.adj_bridges:
-			print(adj_bridge, end = ' ')
-
-		print()
+			print(adj_bridge + 1, end = ' ')
 		
-		print(LAN.desig_port)
+		print(f'\nDesignated port for LAN {LAN.lan_id}: {LAN.desig_port + 1}')
 	
 
 
