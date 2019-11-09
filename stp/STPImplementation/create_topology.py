@@ -30,9 +30,11 @@ def create_topo(bridge_network, LAN_network):
 
     # TODO: error checking for duplicate LANs
 
+    llist = [[1, 7, 2], [7, 6], [2, 3], [3, 6, 5], [3, 4, 5], [6, 5, 8], [8, 4], [2]]
+
     for i in range(bridge_count): 
 
-        LAN_list = []
+        """LAN_list = []
 
         print(f"B{i + 1}:", end = " ")
         inp = input().split()
@@ -40,7 +42,9 @@ def create_topo(bridge_network, LAN_network):
         for LAN in inp:
         	LAN_list.append(int(LAN))
 
-        LAN_list.sort()
+        LAN_list.sort() """
+
+        LAN_list = llist[i]
 
         # add unique LANs to LAN_set, if not
         # already existing
@@ -66,7 +70,7 @@ def create_topo(bridge_network, LAN_network):
     """  
 
     for LAN_id in LAN_set:
-        lan = LANN(lan_id=LAN_id, desig_port=-1, adj_bridges=[], hosts_in_lan=0)
+        lan = LANN(lan_id=LAN_id, desig_port=-1, adj_bridges=[], hosts_in_lan=[])
         for bridge in bridge_network:
             for bridge_LAN in bridge.adj_LANs:
                 if bridge_LAN == LAN_id:

@@ -81,3 +81,12 @@ def UpdateConfig(message, bridge_network):  # lists are mutable
 		return_message.source = bridge
 
 	return return_message
+
+def lookIntoTable(fwding_table, dest):
+	l = None
+	
+	for ftable in fwding_table:
+		if ftable.host == dest:
+			l = ftable.fport
+	
+	return l

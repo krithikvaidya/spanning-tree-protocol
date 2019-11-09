@@ -13,9 +13,9 @@ class LANN:
 
 
 class Forwarding_Table:
-    def __init__(self, host_id, lan_forwarding_port):
-        self.host_id = host_id
-        self.lan_forwarding_port = lan_forwarding_port
+    def __init__(self, host, fport):
+        self.host = host
+        self.fport = fport
 
 
 class Bridge:
@@ -57,6 +57,17 @@ class Message:
             return True
         else: 
             return False
+
+
+class Data_Packet:
+
+     def __init__(self, source, dest, prev, bridge):
+        self.source = source
+        self.dest = dest
+        self.prev = prev
+        self.bridge = bridge
+
+    
 
 # class Traces
 # data packet class for data packet sending simulation
